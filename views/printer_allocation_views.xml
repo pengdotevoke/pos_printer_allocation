@@ -1,0 +1,33 @@
+<odoo>
+    <record id="view_printer_allocation_form" model="ir.ui.view">
+        <field name="name">printer.allocation.form</field>
+        <field name="model">printer.allocation</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="printer_a"/>
+                        <field name="printer_b"/>
+                        <field name="printer_a_count" readonly="1"/>
+                        <field name="printer_b_count" readonly="1"/>
+                        <field name="total_jobs" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <menuitem id="menu_printer_allocation" name="Printer Allocation"
+              parent="point_of_sale.menu_point_root"/>
+
+    <record id="action_printer_allocation" model="ir.actions.act_window">
+        <field name="name">Printer Allocation</field>
+        <field name="res_model">printer.allocation</field>
+        <field name="view_mode">form</field>
+    </record>
+
+    <menuitem id="submenu_printer_allocation"
+              name="Settings"
+              parent="menu_printer_allocation"
+              action="action_printer_allocation"/>
+</odoo>
